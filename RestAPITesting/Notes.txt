@@ -1,0 +1,14 @@
+Documentation: https://developers.google.com/maps/do...
+
+Key Generation...
+---
+1) Create a new Project in Google Developer console
+2) Create API key for that project
+3) Enable API
+
+https://maps.googleapis.com/maps/api/...
+  ?location=-33.8670522,151.1957362
+  &radius=500
+  &types=food
+  &name=harbour
+  &key=YOUR_API_KEY

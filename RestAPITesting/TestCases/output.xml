@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.0.2 (Python 3.9.2 on darwin)" generated="20210526 12:39:51.575" rpa="false" schemaversion="2">
+<suite id="s1" name="TC010 JSON APIKey Validation" source="/Users/ishandhaliwal/Documents/RobotFrameworkPython/RestAPITesting/TestCases/TC010_JSON_APIKey_Validation.robot">
+<test id="s1-t1" name="TC_APIKey">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>myssion</arg>
+<arg>${base_url}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20210526 12:39:51.637" level="INFO">Creating Session using : alias=myssion, url=https://api.openweathermap.org, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20210526 12:39:51.637" endtime="20210526 12:39:51.637"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${params}</var>
+<arg>q=Delhi</arg>
+<arg>cnt=1</arg>
+<arg>appid=fe9c5cddb7e01d747b4611c3fc9eaf2c</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20210526 12:39:51.637" level="INFO">${params} = {'q': 'Delhi', 'cnt': '1', 'appid': 'fe9c5cddb7e01d747b4611c3fc9eaf2c'}</msg>
+<status status="PASS" starttime="20210526 12:39:51.637" endtime="20210526 12:39:51.637"/>
+</kw>
+<kw name="Get On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>myssion</arg>
+<arg>${req_uri}</arg>
+<arg>params=${params}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20210526 12:39:51.991" level="INFO">GET Request : url=https://api.openweathermap.org/data/2.5/forecast/daily?q=Delhi&amp;cnt=1&amp;appid=fe9c5cddb7e01d747b4611c3fc9eaf2c 
+ path_url=/data/2.5/forecast/daily?q=Delhi&amp;cnt=1&amp;appid=fe9c5cddb7e01d747b4611c3fc9eaf2c 
+ headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20210526 12:39:51.991" level="INFO">GET Response : url=https://api.openweathermap.org/data/2.5/forecast/daily?q=Delhi&amp;cnt=1&amp;appid=fe9c5cddb7e01d747b4611c3fc9eaf2c 
+ status=200, reason=OK 
+ headers={'Server': 'openresty', 'Date': 'Wed, 26 May 2021 07:09:51 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '563', 'Connection': 'keep-alive', 'X-Cache-Key': '/data/2.5/forecast/daily?cnt=1&amp;q=delhi', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Credentials': 'true', 'Access-Control-Allow-Methods': 'GET, POST'} 
+ body={"city":{"id":1273294,"name":"Delhi","coord":{"lon":77.2167,"lat":28.6667},"country":"IN","population":10927986,"timezone":19800},"cod":"200","message":0.11613,"cnt":1,"list":[{"dt":1622010600,"sunrise":1621986924,"sunset":1622036476,"temp":{"day":311.38,"min":304.49,"max":314.66,"night":309.3,"eve":314.66,"morn":304.49},"feels_like":{"day":308.96,"night":306.71,"eve":311.2,"morn":302.45},"pressure":999,"humidity":14,"weather":[{"id":802,"main":"Clouds","description":"scattered clouds","icon":"03d"}],"speed":5.67,"deg":314,"gust":7.72,"clouds":36,"pop":0}]} 
+ </msg>
+<msg timestamp="20210526 12:39:51.992" level="INFO">/Users/ishandhaliwal/RestAPITesting/lib/python3.9/site-packages/urllib3/connectionpool.py:1013: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api.openweathermap.org'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20210526 12:39:51.992" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20210526 12:39:51.637" endtime="20210526 12:39:51.993"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20210526 12:39:51.993" endtime="20210526 12:39:51.996"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20210526 12:39:51.996" endtime="20210526 12:39:51.997"/>
+</kw>
+<status status="PASS" starttime="20210526 12:39:51.636" endtime="20210526 12:39:51.998"/>
+</test>
+<status status="PASS" starttime="20210526 12:39:51.576" endtime="20210526 12:39:51.998"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="TC010 JSON APIKey Validation">TC010 JSON APIKey Validation</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

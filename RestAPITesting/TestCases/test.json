@@ -1,0 +1,23 @@
+{
+    "firstName" : "John",
+    "lastName"  : "Smith",
+    "age"       : 26,
+    "address"   : {
+        "streetAddress" :  "A street",
+        "city"          :   "Nara",
+        "postalCode"    :   122017
+
+    },
+
+    "phoneNumbers"  :   [
+        {
+            "type"      :   "Business",
+            "number"    :   "4444-444-44444"
+        },
+        {
+             "type"     :   "Home",
+             "number"   :   "0123-4567-8910"
+        }
+
+    ]
+}
